@@ -6,7 +6,7 @@ package day2;
  * Naming Conventions:
  * folders (packages): all lower case with no spaces
  * Classes: UpperCase on first letter of each word (Pascal Case)
- * methods/fucntions (variables): camelCase all lower case except the first letter of each word except the first word.
+ * methods/functions (variables): camelCase all lower case except the first letter of each word except the first word.
  * 
  * Constants: ALL upper case _ to distinquish words NUM_STUDENTS
  */
