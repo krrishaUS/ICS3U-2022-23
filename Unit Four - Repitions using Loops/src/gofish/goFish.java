@@ -15,7 +15,6 @@ public class goFish {
    private static final String KING = "K";
    private static final int NUM_FACE = 13;
    private static final int RESET_CARDS = 5;
-   private static final in MAX_SCORE = 10;
    static final Scanner in = new Scanner(System.in);
    public static void main(String[] args) {
    boolean stillPlaying = true;
@@ -32,7 +31,7 @@ public class goFish {
      int randomPlayer = (int)(Math.random()*4)+1;
      String randomCard;
 
-     cards1 = getHand(); 
+     cards1 = getHand();
      cards2 = getHand();
      cards3 = getHand();
      cards4 = getHand();
@@ -58,18 +57,6 @@ public class goFish {
       System.out.println("Player 2 score: " + score2);
       System.out.println("Player 3 score: " + score3);
       System.out.println("Player 4 score: " + score4);
-      if (score>= MAX_SCORE){
-         if (score1>=MAX_SCORE){
-            System.out.println("You win!");
-         }else if(score2>=MAX_SCORE){
-            System.out.println("Player 2 wins!");
-         }else if(score3>=MAX_SCORE){
-            System.out.println("Player 3 wins!");
-         }else if(score4>=MAX_SCORE){
-            System.out.println("Player 4 wins!");
-         }
-
-      }
 
       System.out.println("Requested Card (Please follow the format [card number,suit]): ");
       String face = in.nextLine();
@@ -224,14 +211,20 @@ private static String getSuit() {
       return hand + "~" + count;
 
       }
-      private static String displayHand(string hand){
-         String spaces = " ";
-         for(int i = 0;i<cards2.length; i++){
-           
+      //private static String displayHand(string hand){
+        // String result = " ";
+         //for(int i = 0;i<hand.length; i++){
+           //String spaces = " ";
+           // if(!(hand.substring(i,i+1)).equals(spaces))){
+            //result += "X"
+
+           //}else{
+
+           //result += hand.substring(i,i+1)}
 
 
-         }
-      }
+//         }
+  //    }
     
    }
 
