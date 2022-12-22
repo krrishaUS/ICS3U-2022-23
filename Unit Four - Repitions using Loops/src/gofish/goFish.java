@@ -197,7 +197,7 @@ private static String getSuit() {
    return "D"; 
    }
    private static String checkPairs (String hand){
-      int count = 0;
+      int count = 0; 
       for (int i = 0; i < hand.length()-1; i+=2){
          String c = hand.charAt(i) + "";
          String temp = hand.substring(hand.indexOf(c) + 2);
