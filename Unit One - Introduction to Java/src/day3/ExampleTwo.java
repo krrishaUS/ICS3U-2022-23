@@ -13,7 +13,7 @@ public class ExampleTwo {
     double averageAge = (numberOne + numberTwo + numberThree) / (double) numStudents;
 
     // int / int = int
-    // double / int = doublt 
+    // double / int = double
     // double / double = double
     // int / double = double
 

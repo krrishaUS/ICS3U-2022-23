@@ -1,6 +1,5 @@
 package gofish;
 
-import java.io.PrintStream;
 import java.util.Scanner;
 
 public class goFish {
@@ -19,6 +18,7 @@ public class goFish {
    static final Scanner in = new Scanner(System.in);
    public static void main(String[] args) {
    boolean stillPlaying = true;
+   boolean isHidden = true;
      String cards1;
      String cards2;
      String cards3;
@@ -33,10 +33,13 @@ public class goFish {
 
      cards1 = getHand();
      cards2 = getHand();
+     System.out.println(displayHand());
+     System.out.println(cards2);
      cards3 = getHand();
      cards4 = getHand();
 
      System.out.println("Original hand: " + cards1);
+
 
      while(score1 < 10 && score2 < 10 && score3 < 10 && score4 < 10){
       String temp = checkPairs(cards1);
@@ -45,29 +48,26 @@ public class goFish {
       temp = checkPairs(cards2);
       cards2 = parseHand(temp);
       score2 += parseScore(temp);   
-      temp = checkPairs(cards2);
+      temp = checkPairs(cards3);
       cards3 = parseHand(temp);
       score3 += parseScore(temp);   
-      temp = checkPairs(cards2);
+      temp = checkPairs(cards4);
       cards4 = parseHand(temp);
       score4 += parseScore(temp);   
 
       System.out.println("New hand: " + cards1);
-      System.out.println(cards2);
-      System.out.println(cards3);
-      System.out.println(cards4);
       System.out.println("Your score: " + score1);
       System.out.println("Player 2 score: " + score2);
       System.out.println("Player 3 score: " + score3);
       System.out.println("Player 4 score: " + score4);
 
-      System.out.println("Requested Card: ");
+      System.out.println("Requested Card (Please follow the format [card number,suit]): ");
       String face = in.nextLine();
       System.out.println("From requested player: ");
       String player = in.nextLine();
       boolean valid = checkInput(player);
       while(!valid){
-         System.out.println("From requested player: ");
+         System.out.println("From requested player (either Player 1, 2, or 3): ");
          player = in.nextLine();
          valid = checkInput(player);
          in.nextLine();
@@ -81,7 +81,7 @@ public class goFish {
          card = face + suit;
          cards1 += card;
          cards2 = cards2.replaceFirst(card,"");
-         System.out.println("You got" + card + "from" + player);
+         System.out.println("You got " + card + " from " + player);
          }else if (player.equals("3")&& cards3.contains(face)){
             suit = cards3.charAt(cards3.indexOf(face)+1) + "";
          card = face + suit;
@@ -95,14 +95,14 @@ public class goFish {
          }else{
             card = getCard();
             cards1 += card;
-            System.out.println("Player says \"go fish\" and you randomly draw" + card);
+            System.out.println("Player says \"go fish\" " + card);
 
          }
-         for(int i = 2; 1<5; i++){
+         for(int i = 2; i<5; i++){
             while (randomPlayer == i){
                randomPlayer = (int)(Math.random() * 4) + 1;
             }
-            String hand;
+            String Hand;
             if (i==2)
             hand = cards2;
             else if (i==3)
@@ -115,6 +115,10 @@ public class goFish {
 
 
    
+      }
+      if(score1 == 10 || score2==10 || score3==10 || score4==10){
+         System.out.println("GAME OVER");
+         playAgain();
       }
    }
 
@@ -214,7 +218,23 @@ private static String getSuit() {
       return hand+ "~" + count;
 
       }
+      public static String displayHand(String Hand){
+         String spaces = " ";
+         if(!((Hand.substring(i,i+1)).equals(spaces))){
+           result += "X";
+         }else{
+            result += Hand.substring(i,i+3);
+         }
+
+         return Hand;
+      }
+   
+
+      
    }
+
+
+
 
  
     
