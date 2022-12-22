@@ -14,7 +14,8 @@ public class goFish {
    private static final String QUEEN = "Q";
    private static final String KING = "K";
    private static final int NUM_FACE = 13;
-   private static final int RESET_CARDS =5;
+   private static final int RESET_CARDS = 5;
+   private static final in MAX_SCORE = 10;
    static final Scanner in = new Scanner(System.in);
    public static void main(String[] args) {
    boolean stillPlaying = true;
@@ -31,15 +32,12 @@ public class goFish {
      int randomPlayer = (int)(Math.random()*4)+1;
      String randomCard;
 
-     cards1 = getHand();
+     cards1 = getHand(); 
      cards2 = getHand();
-     System.out.println(displayHand());
-     System.out.println(cards2);
      cards3 = getHand();
      cards4 = getHand();
 
      System.out.println("Original hand: " + cards1);
-
 
      while(score1 < 10 && score2 < 10 && score3 < 10 && score4 < 10){
       String temp = checkPairs(cards1);
@@ -60,6 +58,18 @@ public class goFish {
       System.out.println("Player 2 score: " + score2);
       System.out.println("Player 3 score: " + score3);
       System.out.println("Player 4 score: " + score4);
+      if (score>= MAX_SCORE){
+         if (score1>=MAX_SCORE){
+            System.out.println("You win!");
+         }else if(score2>=MAX_SCORE){
+            System.out.println("Player 2 wins!");
+         }else if(score3>=MAX_SCORE){
+            System.out.println("Player 3 wins!");
+         }else if(score4>=MAX_SCORE){
+            System.out.println("Player 4 wins!");
+         }
+
+      }
 
       System.out.println("Requested Card (Please follow the format [card number,suit]): ");
       String face = in.nextLine();
@@ -102,7 +112,7 @@ public class goFish {
             while (randomPlayer == i){
                randomPlayer = (int)(Math.random() * 4) + 1;
             }
-            String Hand;
+            String hand;
             if (i==2)
             hand = cards2;
             else if (i==3)
@@ -110,11 +120,7 @@ public class goFish {
             else
             hand = cards4;
 
-         }
-        
-
-
-   
+         }   
       }
       if(score1 == 10 || score2==10 || score3==10 || score4==10){
          System.out.println("GAME OVER");
@@ -205,7 +211,7 @@ private static String getSuit() {
    }
    private static String checkPairs (String hand){
       int count = 0;
-      for (int i = 0; i < hand.length() -1; i+=2){
+      for (int i = 0; i < hand.length()-1; i+=2){
          String c = hand.charAt(i) + "";
          String temp = hand.substring(hand.indexOf(c) + 2);
          if (temp.contains(c)){
@@ -215,22 +221,18 @@ private static String getSuit() {
          }
 
          }
-      return hand+ "~" + count;
+      return hand + "~" + count;
 
       }
-      public static String displayHand(String Hand){
+      private static String displayHand(string hand){
          String spaces = " ";
-         if(!((Hand.substring(i,i+1)).equals(spaces))){
-           result += "X";
-         }else{
-            result += Hand.substring(i,i+3);
+         for(int i = 0;i<cards2.length; i++){
+           
+
+
          }
-
-         return Hand;
       }
-   
-
-      
+    
    }
 
 
