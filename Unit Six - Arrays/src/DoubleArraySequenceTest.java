@@ -7,7 +7,7 @@ public class DoubleArraySequenceTest {
        int score = 0;
        DoubleArraySequence d1 = new DoubleArraySequence();
        DoubleArraySequence d2 = new DoubleArraySequence(5);
-       DoubleArraySequence d3 = new DoubleArraySequence(d2);
+       DoubleArraySequence d3 = new DoubleArraySequence(d2); 
  
        if (d1.size() == 0)
           score++;

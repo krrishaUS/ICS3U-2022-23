@@ -465,16 +465,13 @@ public class DoubleArraySequence implements Cloneable {
      *                             capacity.
      **/
     public void trimToSize() {
-        double[ ] trimmedArray;
-      
-        if (data.length != manyItems)
-        {
-           trimmedArray = new double[manyItems];
-           System.arraycopy(data, 0, trimmedArray, 0, manyItems);
-           data = trimmedArray;
+        double [] Items = new double[manyItems];
+        for (int i = 0; i < manyItems; i++) {
+           Items[i] = data[i];
         }
- 
-    }
+           data = Items;
+     }
+    
  
     public int getCurrentIndex() {
        return currentIndex;
